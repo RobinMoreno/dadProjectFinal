@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sistema de Temperatura Regulable y Antiincendios</title>
+	<link rel="stylesheet" href="static/css/bootstrap.css">
+    <link rel="stylesheet" href="static/css/bootstrap-theme.css">
+    <script type="text/javascript" src="static/js/mqtt.js"></script>
+	<script type="text/javascript" src="static/js/mqttws31.js"></script>
+	<script type="text/javascript" src="static/js/vars.js"></script>
+	<script type="text/javascript" src="static/js/AbreP1.js"></script>
+	<script src="static/js/jquery-3.2.1.js"></script>
+	<script src="static/js/bootstrap.js"></script>
+	
+  </head>
+  <body>
+  
+  <script>inicializacion();</script>
+
+  <div class="container">
+		<section>
+		  <h1>Sistema de Temperatura Regulable y Antiincendios</h1>
+		  <div class="row">
+			  <article>
+				<table class="table table-striped">		
+						<tr>	
+							<th>Registro de estufas:</th>
+							<th>
+								<div class="text-center" id = "RegP1" style="height:80px;width:280px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+									
+								</div>
+							<th>
+						</tr>				
+				</table>
+				<div id = "content1" class="col-md-3">
+					
+				</div>
+			    <div class="col-md-9">
+					
+					<table class="table table-striped">
+						<h2>
+							<div id = "name" class="col-md-3">
+					
+							</div>	
+							
+						</h2>
+						<tr>
+							<th>Actualizar Datos:</th>
+							<th>
+								<div id = "varUpdate" class="col-md-3">
+								
+								<input id="ActualSmoke" type="button" value="Actualizar Datos" onclick="Lecturas();" />
+					
+								</div>	
+							</th>
+						</tr>
+						<tr>
+							<th>Estado:</th>
+							<th>
+								<div id = "varEstado1" class="col-md-3">
+					
+								</div>	
+							</th>
+						</tr>
+						<tr>
+							<th>¿Hay humo?:</th>
+							<th>
+								<div id = "varSmoke" class="col-md-3">
+								
+								</div>	
+					
+							</th>
+							
+						</tr>
+						<tr>
+							<th>Temperatura actual:</th>
+							<th>
+								<div id = "varActual" class="col-md-3">
+								
+								</div>
+					
+							</th>
+							
+						</tr>
+						<tr>
+							<th>Temperatura deseada:</th>
+							<th>
+								<div id = "varTemp1" class="col-md-3">
+					
+								</div>	
+							</th>
+							
+						</tr>
+						<th>Seleccione la Temperatura deseada:</th>
+							<th>
+								<div class="slidecontainer">
+									<input type="range" id="sliderInput" min="16" max="40" value="24" class="slider" step="0.1" id="myRange" onchange="updateTextInput(this.value);">
+									<input type="number" id="textInput" value="24" min="16" max="40" size="2" onchange="updateSliderInput(this.value);">
+									<i>ºC</i>
+									<input id="tpE1" type="button" value="Confirmar Temperatura" onclick="updateTempDeseada();" /> 
+								</div>	
+							</th>
+						<tr>
+						
+							<th>
+								<input id="onBut" type="button" value="Encender" onclick=" clickOn();"/> 
+							</th>
+							<th>
+								<input id="offBut" type="button" value="Apagar" onclick="clickOff();"/>
+							</th>
+						</tr>
+					</table>	
+				</div>	
+			  </article> 
+		  </div>
+		  <div class="row">
+			  <article>
+			    <br/>
+				<div id = "content2" class="col-md-3">
+						
+				</div>	
+			  </article>
+		  </div>
+		</section>
+   </div>
+	
+	
+  </body>
+</html>
